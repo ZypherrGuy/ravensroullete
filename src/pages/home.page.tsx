@@ -32,6 +32,15 @@ const Home = () => {
         <img src="/raven-logo.png" alt="Raven's Roulette Logo" className="game-logo" />
       </div>
 
+      {/* Start Game Button */}
+      <Button 
+        className="start-game-btn" 
+        text="Start Game" 
+        onClick={handleStartGame} 
+        type="primary" 
+        disabled={players.length === 0} 
+      />
+
       {/* Input with Add Button */}
       <div className="input-wrapper">
         <input
@@ -45,14 +54,11 @@ const Home = () => {
       </div>
       {error && <p className="input-error-message">{error}</p>}
 
-      {/* Start Game Button */}
-      <Button className="start-game-btn" text="Start Game" onClick={handleStartGame} type="primary" disabled={players.length === 0} />
-
       {/* Player List Container */}
       <div className="player-list-wrapper">
         {players.length > 0 && (
           <div className="player-list-container">
-            {players.map((player: any) => (
+            {players.map((player) => (
               <div key={player.id} className="player-item">
                 {player.name}
                 <button onClick={() => removePlayer(player.id)} className="remove-btn">❌</button>

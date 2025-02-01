@@ -7,14 +7,14 @@
 }
 
 body {
-  background: url("/background.png") no-repeat center center/cover; /* Sets the background */
+  background: url("/background.png") no-repeat center center/cover;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
-  overflow: hidden; /* Prevents unwanted scrolling */
+  overflow: hidden;
 }
 
 /* === Home Page Container === */
@@ -22,10 +22,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   width: 100%;
   position: relative;
+  padding-top: 100px; /* Added space from top */
 }
 
 /* === Header Styles === */
@@ -46,14 +47,14 @@ body {
 
 /* === Logo Styles === */
 .logo-container {
-  position: absolute;
-  top: 80px;
+  position: relative;
   width: 100%;
   text-align: center;
+  margin-bottom: 30px; /* Adds spacing below the logo */
 }
 
 .game-logo {
-  width: 250px; /* Adjust size */
+  width: 250px;
   height: auto;
   object-fit: contain;
 }
@@ -108,15 +109,14 @@ body {
 
 /* === Input with Add Button === */
 .input-wrapper {
-  position: absolute;
-  top: -30px; /* Adjusted to align correctly */
-  width: 320px;
   display: flex;
   align-items: center;
   background: white;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  margin-top: 20px; /* Spacing between Start Game and Input */
 }
 
 /* === Fixed Input Section === */
@@ -129,7 +129,7 @@ body {
   background: #106B39;
   color: white;
   border: none;
-  padding: 12.5px 16px; 
+  padding: 12.5px 16px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-size: 16px;
@@ -142,14 +142,16 @@ body {
 }
 
 .add-btn:hover {
-  background: #106B39;
+  background: #0a4d29;
 }
 
+/* === Input Error Message === */
 .input-error-message {
   font-size: 14px;
   color: red;
   margin-top: 5px;
 }
+
 
 .input-field {
   flex: 1;
@@ -160,7 +162,6 @@ body {
   border-bottom-left-radius: 8px;
   font-size: 16px;
   width: 100%;
-  transition: border-color 0.3s ease-in-out;
   outline: none;
 }
 
@@ -198,10 +199,8 @@ body {
 
 /* === Buttons === */
 .start-game-btn {
-  position: absolute;
-  bottom: 50px; 
+  margin-bottom: 20px; /* Spacing below the Start Game button */
   width: 320px;
-  z-index: 2;
 }
 
 .dare-type {
@@ -379,8 +378,8 @@ body {
 }
 
 .player-list-wrapper {
-  position: absolute;
-  top: 340px; /* Below the start button */
+  position: initial;
+
   width: 100%;
   max-width: 320px;
   overflow-y: auto;
@@ -394,11 +393,12 @@ body {
   gap: 4px;
   max-width: 320px;
   padding: 10px;
-  background: #ffffff5e;
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* === Player Item Styles === */
 .player-item {
   display: flex;
   align-items: center;
