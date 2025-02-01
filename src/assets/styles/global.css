@@ -1,0 +1,503 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url("/background.png") no-repeat center center/cover; /* Sets the background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden; /* Prevents unwanted scrolling */
+}
+
+/* === Home Page Container === */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* === Header Styles === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #bf4c4c, #f26a6a);
+  padding: 20px 30px;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* === Logo Styles === */
+.logo-container {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+.game-logo {
+  width: 250px; /* Adjust size */
+  height: auto;
+  object-fit: contain;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  margin: 0 auto;
+}
+
+.logo:hover {
+  color: #ffcc00;
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li {
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.nav-links li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffcc00;
+}
+
+/* === Input Component Styles === */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.input-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 6px;
+}
+
+/* === Input with Add Button === */
+.input-wrapper {
+  position: absolute;
+  top: -30px; /* Adjusted to align correctly */
+  width: 320px;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Fixed Input Section === */
+.input-wrapper, .start-game-btn {
+  position: relative;
+  z-index: 2; 
+}
+
+.add-btn {
+  background: #106B39;
+  color: white;
+  border: none;
+  padding: 12.5px 16px; 
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.add-btn:hover {
+  background: #106B39;
+}
+
+.input-error-message {
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #106B39;
+  border-right: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #ff4081;
+  box-shadow: 0px 0px 8px rgba(255, 64, 129, 0.3);
+}
+
+.input-error {
+  border-color: red;
+}
+
+.input-error-message {
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+}
+
+
+/* === Main Layout Styles === */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+/* === Buttons === */
+.start-game-btn {
+  position: absolute;
+  bottom: 50px; 
+  width: 320px;
+  z-index: 2;
+}
+
+.dare-type {
+  font-size: 18px;
+  font-weight: bold;
+  color: #058a2d;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 140px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #bf4c4c, #f26a6a);
+  color: white;
+  box-shadow: 0px 5px 15px rgba(76, 81, 191, 0.3);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #bf4c4c, #f26a6a);
+  transform: scale(1.05);
+}
+
+.btn.secondary {
+  background: linear-gradient(135deg, #ff4081, #ff6f91);
+  color: white;
+  box-shadow: 0px 5px 15px rgba(255, 64, 129, 0.3);
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(135deg, #e03070, #ff5985);
+  transform: scale(1.05);
+}
+
+.btn.disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* === Card Styles === */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #bf4c4c;
+  margin-bottom: 12px;
+}
+
+.card-content {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.card-footer {
+  font-size: 16px;
+  color: #777;
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* === Dare Card Styles === */
+.dare-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dare-card:hover {
+  transform: scale(1.05);
+}
+
+.dare-content {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.dare-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #bf4c4c;
+  margin-bottom: 10px;
+}
+
+/* === Game Board Styles === */
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.game-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #bf4c4c;
+  text-align: center;
+}
+
+/* === Player Input Styles === */
+.player-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.player-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #bf4c4c;
+}
+
+.player-input-field {
+  padding: 10px;
+  border: 2px solid #106B39;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.player-list {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.player-list li {
+  font-size: 16px;
+  color: #333;
+  padding: 5px 0;  
+}
+
+.player-list-wrapper {
+  position: absolute;
+  top: 340px; /* Below the start button */
+  width: 100%;
+  max-width: 320px;
+  overflow-y: auto;
+  max-height: 220px; /* Ensure player list scrolls */
+}
+
+.player-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 320px;
+  padding: 10px;
+  background: #ffffff5e;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: #bf4c4c;
+  background: rgba(191, 76, 76, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  width: 48%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === Player List Styles === */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* === Player Remove (❌) Button === */
+.remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: #ff3b3b;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-left: 5px;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 59, 59, 0.2);
+  color: #d60000;
+  transform: scale(1.15);
+}
+
+.remove-btn:active {
+  transform: scale(0.95);
+}
+
+/* === Game Page Styling === */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+/* === Game Content Wrapper === */
+.game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+}
+.game-player-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #bf4c4c;
+  margin-bottom: 15px;
+}
+
+.next-turn-btn {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 250px;
+}
