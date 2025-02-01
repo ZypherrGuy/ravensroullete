@@ -58,7 +58,7 @@ const Home = () => {
       <div className="player-list-wrapper">
         {players.length > 0 && (
           <div className="player-list-container">
-            {players.map((player) => (
+            {players.map((player: any) => (
               <div key={player.id} className="player-item">
                 {player.name}
                 <button onClick={() => removePlayer(player.id)} className="remove-btn">❌</button>
